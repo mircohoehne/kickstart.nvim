@@ -541,6 +541,9 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {
+          -- HACK:
+          -- This option is set, since there is a bug, where pyright analyzes all the files in the root directory and doesn't work
+          -- check if the bug is fixed. If not, write a toml or pyrightconfig.json file for each project, specifying the source to analyze
           root_dir = function()
             return vim.fn.getcwd()
           end,
